@@ -2,7 +2,7 @@
 streamlit==1.30.0
 python-dotenv
 requests
-PyMuPDF==PyMuPDF==1.22.3        
+PyMuPDF==1.22.3        
 python-docx             
 python-pptx            
 chromadb==0.4.24
