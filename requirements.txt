@@ -1,0 +1,11 @@
+chromadb==1.0.13
+fitz==0.0.1.dev2
+python-dotenv==1.1.1
+python_docx==1.1.2
+python_pptx==1.0.2
+Requests==2.32.4
+streamlit==1.16.0
+streamlit==1.30.0
+streamlit==1.39.0
+streamlit==1.8.0
+streamlit==1.46.1
