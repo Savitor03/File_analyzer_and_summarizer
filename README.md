@@ -99,8 +99,8 @@ You can export:
 
 ## 👥 Author
 
-Made by [Your Name] ✨  
-Licensed under [MIT License]
+Made by KAVIARASAN M ✨  
+
 
 ---
 
