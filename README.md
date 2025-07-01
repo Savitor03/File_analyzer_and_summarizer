@@ -1,5 +1,5 @@
 
-# 📄 PDF-Genius: Multi-File Summarizer & RAG Q&A App
+# 📄 File Analyzer: Multi-File Summarizer & RAG Q&A App
 
 PDF-Genius is a powerful Streamlit app that allows you to:
 - Upload documents (PDF, DOCX, PPTX, TXT, MD)
