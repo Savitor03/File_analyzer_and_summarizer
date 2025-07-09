@@ -1,5 +1,14 @@
 import os
 import json
+import chromadb
+from chromadb.utils import embedding_functions
+
+# === ChromaDB Setup ===
+CHROMA_DIR = "chroma_store"
+client = chromadb.PersistentClient(path=CHROMA_DIR)
+embedding_function = embedding_functions.SentenceTransformerEmbeddingFunction(
+    model_name="all-MiniLM-L6-v2"
+)
 
 SESSION_DIR = "sessions"
 os.makedirs(SESSION_DIR, exist_ok=True)
@@ -37,10 +46,20 @@ def list_sessions():
         return []
 
 def delete_session(session_name):
-    """Delete a saved session file by name."""
+    """Delete a saved session file and corresponding ChromaDB collection."""
     path = os.path.join(SESSION_DIR, f"{session_name}.json")
     if os.path.exists(path):
         try:
             os.remove(path)
         except Exception as e:
             print(f"❌ Failed to delete session '{session_name}': {e}")
+
+    # Delete associated ChromaDB collection
+    collection_name = f"session_{session_name}"
+    try:
+        existing_collections = [col.name for col in client.list_collections()]
+        if collection_name in existing_collections:
+            client.delete_collection(name=collection_name)
+            print(f"🗑️ Deleted ChromaDB collection for session: {collection_name}")
+    except Exception as e:
+        print(f"❌ Failed to delete ChromaDB collection '{collection_name}': {e}")

@@ -130,7 +130,7 @@ if st.session_state.chat_history:
     for i, (q, a) in enumerate(st.session_state.chat_history):
         with st.expander(f"Q{i+1}: {q}", expanded=(i == st.session_state.selected_chat)):
             st.markdown(f"**You:** {q}")
-            st.markdown(f"**PDF-Genius:** {a}")
+            st.markdown(f"**Me:** {a}")
             if st.button("❌ Delete", key=f"delete_chat_{i}"):
                 del st.session_state.chat_history[i]
                 if st.session_state.selected_chat == i:
