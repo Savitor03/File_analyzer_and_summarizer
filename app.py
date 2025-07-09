@@ -93,11 +93,14 @@ with st.sidebar:
 
     st.markdown("---")
 
+    export_name = f"{st.session_state.current_session or 'chat'}.txt"
+
     st.download_button(
         "Export Chat",
         "\n\n".join([f"Q: {q}\nA: {a}" for q, a in st.session_state.chat_history]),
-        file_name="chat_history.txt"
-    )
+        file_name=export_name
+)
+
 
 
     st.markdown("---")
